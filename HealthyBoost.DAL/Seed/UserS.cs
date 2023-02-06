@@ -28,7 +28,8 @@ namespace HealthyBoost.DAL.Seed
                 Gender = Gender.Diğer,
                 State = true
             };
-
+            SHA sha = new SHA();
+            admin.Password = sha.Sha256_Hash(admin.Password);
             context.Users.Add(admin);
             context.SaveChanges();
         }
